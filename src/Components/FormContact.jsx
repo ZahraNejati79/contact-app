@@ -13,6 +13,7 @@ const FormContact = ({ addContactHandler }) => {
   };
   const submitHandler = (e) => {
     e.preventDefault();
+    addContactHandler(contact);
   };
   const closeHandler = (e) => {
     if (e.target.id === "container") {
@@ -25,11 +26,11 @@ const FormContact = ({ addContactHandler }) => {
       id="container"
       className="fixed inset-0 bg-slate-600 backdrop-blur-sm bg-opacity-30 flex items-center justify-center"
     >
-      <form className=" p-8 bg-red-50 rounded-lg" onSubmit={submitHandler}>
+      <form className=" p-8 bg-white  rounded-lg" onSubmit={submitHandler}>
         <div className="mt-4 flex flex-col items-end justify-center">
           <label htmlFor="name">نام</label>
           <input
-            className="mt-2 py-1 rounded-lg w-full"
+            className=" border-2  focus:border-transparent focus:ring-2 focus:ring-gray-400 border-gray-400  outline-none  mt-2 py-1 rounded-lg w-full"
             name="name"
             value={contact.name}
             onChange={changeHandler}
@@ -39,7 +40,7 @@ const FormContact = ({ addContactHandler }) => {
         <div className="mt-4 flex flex-col items-end justify-center">
           <label htmlFor="name">شماره</label>
           <input
-            className="mt-2 py-1 rounded-lg w-full"
+            className="border-2  focus:border-transparent focus:ring-2 focus:ring-gray-400 border-gray-400  outline-none mt-2 py-1 rounded-lg w-full"
             name="phoneNumber"
             value={contact.phoneNumber}
             onChange={changeHandler}
@@ -49,17 +50,14 @@ const FormContact = ({ addContactHandler }) => {
         <div className="mt-4 flex flex-col items-end justify-center">
           <label htmlFor="name">ایمیل</label>
           <input
-            className="mt-2 py-1 rounded-lg w-full"
+            className="border-2  focus:border-transparent focus:ring-2 focus:ring-gray-400 border-gray-400  outline-none mt-2 py-1 rounded-lg w-full"
             name="email"
             value={contact.email}
             onChange={changeHandler}
             type="email"
           />
         </div>
-        <button
-          className="mt-4 w-full py-1 border border-gray-300 rounded-lg"
-          onClick={() => addContactHandler(contact)}
-        >
+        <button className="mt-4 w-full py-1 focus:bg-slate-200 border border-gray-200 rounded-lg">
           ثبت
         </button>
       </form>
