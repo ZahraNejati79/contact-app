@@ -1,7 +1,7 @@
 import { IoMdContact } from "react-icons/io";
 import { GrFormView } from "react-icons/gr";
 import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
-const Contact = ({ contact, onDelete }) => {
+const Contact = ({ contact, onDelete, onEdit }) => {
   return (
     <div className="flex items-center justify-center ">
       <div className="flex items-center justify-between mb-4 p-2 rounded-lg shadow-lg  w-full md:w-1/2 ">
@@ -34,7 +34,7 @@ const Contact = ({ contact, onDelete }) => {
             <button>
               <GrFormView />
             </button>
-            <button>
+            <button onClick={onEdit}>
               <AiOutlineEdit />
             </button>
             <button onClick={() => onDelete(contact.id)}>

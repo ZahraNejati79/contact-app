@@ -19,10 +19,27 @@ function App() {
     setContacts(filterContacts);
   };
 
+  const editHandler = (newContact, id) => {
+    console.log("new", newContact);
+    console.log("id", id);
+    const index = contacts.findIndex((contact) => contact.id === id);
+    const updatedContact = [...contacts];
+    const selectedEdit = { ...contacts[index] };
+    selectedEdit.name = newContact.name;
+    selectedEdit.phoneNumber = newContact.phoneNumber;
+    selectedEdit.email = newContact.email;
+    updatedContact[index] = selectedEdit;
+    setContacts(updatedContact);
+  };
+
   return (
     <div className="App">
-      <FormContact addContactHandler={addContactHandler} />
-      <ContactList contacts={contacts} deleteHandler={deleteHandler} />
+      <FormContact submitHandler={addContactHandler} />
+      <ContactList
+        contacts={contacts}
+        deleteHandler={deleteHandler}
+        editHandler={editHandler}
+      />
     </div>
   );
 }
